@@ -2,7 +2,8 @@ import React from 'react';
 import { Layout } from 'antd';
 import './App.css';
 
-const { Header, Footer, Sider, Content} = Layout;
+
+const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
     <div className="App">
@@ -20,7 +21,7 @@ function App() {
             <Content className='bg-blue-300 rounded-lg'>Content</Content>
             <Footer className='bg-red-700 text-white rounded-lg'>Footer</Footer>
           </Layout>
-          <Sider style={{ background: "red" }} className="h-[90vh]  m-3 rounded-lg w-28 md:w-auto">
+          <Sider style={{ background: "red" }} className="h-[90vh] hidden md:flex m-3 rounded-lg w-28 md:w-auto">
             <div className='bg-red-300 '>
 
             </div>
