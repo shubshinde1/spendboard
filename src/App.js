@@ -16,10 +16,10 @@ function App() {
         <Layout className='space-y-3 my-3'>
           <Header className="bg-red-400 rounded-lg">Header</Header>
           <Content className='bg-blue-300 rounded-lg'>Content</Content>
-          <Footer className='bg-red-400 rounded-lg'>Footer</Footer>
+          <Footer className='bg-red-700 text-white rounded-lg'>Footer</Footer>
         </Layout>
-        <Sider style={{ background: "purple" }} className="h-[90vh]  m-3 rounded-lg w-28 md:w-auto">
-          <div className='bg-red-300'>
+        <Sider style={{ background: "red" }} className="h-[90vh]  m-3 rounded-lg w-28 md:w-auto">
+          <div className='bg-red-300 '>
 
           </div>
           Sidersdfghjk
