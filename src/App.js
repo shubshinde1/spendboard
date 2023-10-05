@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Layout } from 'antd';
 import './App.css';
 
+const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout className=' mx-auto'>
+        <Sider style={{ background: "purple" }} className="h-[90vh]  m-3 rounded-lg w-28 md:w-auto">
+          <div className='bg-red-300'>
+
+          </div>
+          Sidersdfghjk
+        </Sider>
+        <Layout className='space-y-3 my-3'>
+          <Header className="bg-red-400 rounded-lg">Header</Header>
+          <Content className='bg-blue-300 rounded-lg'>Content</Content>
+          <Footer className='bg-red-400 rounded-lg'>Footer</Footer>
+        </Layout>
+        <Sider style={{ background: "purple" }} className="h-[90vh]  m-3 rounded-lg w-28 md:w-auto">
+          <div className='bg-red-300'>
+
+          </div>
+          Sidersdfghjk
+        </Sider>
+      </Layout>
     </div>
   );
 }
