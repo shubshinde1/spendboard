@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+
+@font-face {
+  font-family: popsemi;
+  src: url(../public/Poppins-SemiBold.ttf);
+}
+
+.popsemi {
+  font-family: popsemi;
+}
+
+
 .App {
   /* text-align: center; */
   text-align: left;
@@ -37,6 +54,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
