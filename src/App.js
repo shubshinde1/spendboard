@@ -66,15 +66,11 @@ function App() {
         <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: "white", }} className="h-[90vh] hover:shadow-xl duration-300 m-3 rounded-lg md:w-[100%]">
             <Menu className='flex flex-col justify-start w-auto bg-transparent h-[85%]'
-              onClick={(items) => {
-                const navigate = useNavigate;
-                navigate(items.key);
-              }}
               mode="inline"
               defaultSelectedKeys={['1']}
               items={[
                 {
-                  key: '/',
+                  key: '0',
                   icon: <Avatar src="./person.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 justify-center flex items-center ' />,
                   label: <h4 className='my-auto popsemi text-base text-[#023154]'>Shubham</h4>,
                   style: {
@@ -82,7 +78,7 @@ function App() {
                   }
                 },
                 {
-                  key: '/home',
+                  key: '1',
                   icon: <Avatar src="./home.svg" style={{ margin: '5px -10px', }} className='h-7 w-7' />,
                   label: <h4 className='my-auto ml-3 popsemi text-sm text-[#023154]'>Home</h4>,
                   className: "flex mt-",
@@ -91,8 +87,8 @@ function App() {
                     marginTop: "30px",
                   }
                 },
-                {
-                  key: '/dashboard',
+                { 
+                  key: '2',
                   icon: <Avatar src="./dashboard4.svg" style={{ margin: '5px -10px', }} className='h-7 w-7' />,
                   label: <h4 className='my-auto ml-3 popsemi text-sm text-[#023154]'>Dashboard</h4>,
                   style: {
@@ -101,7 +97,7 @@ function App() {
                   }
                 },
                 {
-                  key: '/explore',
+                  key: '3',
                   icon: <Avatar src="./explore.svg" style={{ margin: '5px -10px', }} className='h-7 w-7' />,
                   label: <h4 className='my-auto ml-3 popsemi text-sm text-[#023154]'>Explore</h4>,
                   style: {
