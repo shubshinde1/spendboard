@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
 import React from 'react';
 import './App.css';
-import { Avatar, Layout, Space, Menu } from 'antd';
+import { useState, useEffect } from 'react';
+import { Avatar, Layout, Space, Menu, } from 'antd';
 import {
-  SettingFilled,
   CaretDownFilled,
-  UserOutlined,
   RightSquareFilled,
   LeftSquareFilled
 } from '@ant-design/icons';
-import { notification, Dropdown, Typography, Button, Badge } from 'antd';
+import { notification, Dropdown, Typography, Button, Segmented, } from 'antd';
+import { useNavigate } from 'react-router-dom';
+// import items from 'antd/es/list/Item';
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -39,7 +40,11 @@ const items = [
 
 
 
+
+
+
 function App() {
+
   const [collapsed, setCollapsed] = useState(window.innerWidth < 640 ? 1 : 0);
 
   useEffect(() => {
@@ -53,6 +58,7 @@ function App() {
     };
   }, []);
 
+
   return (
     <div className="App">
 
@@ -60,11 +66,15 @@ function App() {
         <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: "white", }} className="h-[90vh] hover:shadow-xl duration-300 m-3 rounded-lg md:w-[100%]">
             <Menu className='flex flex-col justify-start w-auto bg-transparent h-[85%]'
+              onClick={(items) => {
+                const navigate = useNavigate;
+                navigate(items.key);
+              }}
               mode="inline"
               defaultSelectedKeys={['1']}
               items={[
                 {
-                  key: '1',
+                  key: '/',
                   icon: <Avatar src="./person.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 justify-center flex items-center ' />,
                   label: <h4 className='my-auto popsemi text-base text-[#023154]'>Shubham</h4>,
                   style: {
@@ -72,7 +82,7 @@ function App() {
                   }
                 },
                 {
-                  key: '2',
+                  key: '/home',
                   icon: <Avatar src="./home.svg" style={{ margin: '5px -10px', }} className='h-7 w-7' />,
                   label: <h4 className='my-auto ml-3 popsemi text-sm text-[#023154]'>Home</h4>,
                   className: "flex mt-",
@@ -82,7 +92,7 @@ function App() {
                   }
                 },
                 {
-                  key: '3',
+                  key: '/dashboard',
                   icon: <Avatar src="./dashboard4.svg" style={{ margin: '5px -10px', }} className='h-7 w-7' />,
                   label: <h4 className='my-auto ml-3 popsemi text-sm text-[#023154]'>Dashboard</h4>,
                   style: {
@@ -91,7 +101,7 @@ function App() {
                   }
                 },
                 {
-                  key: '4',
+                  key: '/explore',
                   icon: <Avatar src="./explore.svg" style={{ margin: '5px -10px', }} className='h-7 w-7' />,
                   label: <h4 className='my-auto ml-3 popsemi text-sm text-[#023154]'>Explore</h4>,
                   style: {
@@ -155,7 +165,7 @@ function App() {
                 </Space>
 
                 {/* <Badge size="small" count={5}> */}
-                  <Avatar src="./notifications.svg" icon='' className=' m-auto hover:bg-slate-100 rounded-full p-2 w-10 h-10' />
+                <Avatar src="./notifications.svg" icon='' className=' m-auto hover:bg-slate-100 rounded-full p-2 w-10 h-10' />
                 {/* </Badge> */}
 
                 <Dropdown className='flex w-auto bg-slate-100 hover:bg-slate-200 duration-1000 py-1 rounded-full'
@@ -180,7 +190,36 @@ function App() {
 
             </Header>
 
-            <Content className='bg-white border-gray-700 rounded-lg  md:mr-0'>Content</Content>
+            <Content className='bg-white border-gray-700 rounded-lg  md:mr-0'>
+              <div className='grid grid-cols-9 gap-5 m-5'>
+                <div className='col-span-9 md:col-span-6 gap-5 bg-red-00 grid grid-rows-6'>
+                  <div className='row-span-4 bg-blue-40'>
+                    <Space direction=''>
+                      <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} className='popsemi' />
+                    </Space>
+
+
+
+                    <div>
+                      <canvas id="myChart"></canvas>
+                    </div>
+
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                    <script src='./chart.js'></script>
+
+
+
+                  </div>
+                  <div className='row-span-2 bg-blue-100'><h2>Hello</h2></div>
+
+                </div>
+                <div className='col-span-9 md:col-span-3 bg-slate-100 rounded-lg'>
+                  <h3>Hello</h3>
+
+                </div>
+              </div>
+            </Content>
           </Layout>
 
           {/* <Sider style={{ background: "white", border: "1px" }} className="bg-white border-gray-700 h-[90vh] hidden md:flex m-3 rounded-lg w-28 md:w-auto">
