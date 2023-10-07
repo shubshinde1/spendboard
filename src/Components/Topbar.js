@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Dropdown, Typography, Button, Space,
-  Avatar, Layout
+  Avatar, Layout, notification
 } from 'antd';
 import { CaretDownFilled } from '@ant-design/icons';
 
@@ -23,7 +23,7 @@ const items = [
 ];
 
 const showNotification = () => {
-  showNotification.info({
+  notification.info({
     message: 'Notification topLeft',
     description: 'Hello, Ant Design!!',
     placement: 'bottomRight',

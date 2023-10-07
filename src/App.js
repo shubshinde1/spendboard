@@ -14,15 +14,6 @@ import Topbar from './Components/Topbar';
 const { Header, Sider, Content } = Layout;
 
 
-
-
-
-
-
-
-
-
-
 function App() {
 
   const [collapsed, setCollapsed] = useState(window.innerWidth < 640 ? 1 : 0);
