@@ -21,8 +21,8 @@ const Sbar = () => {
     }, []);
 
     return (
-        <div>
-            <Menu className='flex flex-col justify-start w-auto bg-transparent h-[80vh] hover:shadow-xl duration-300 m-3 rounded-lg md:w-[100%]'  trigger={null} collapsible collapsed={collapsed} style={{ background: "white", }}
+        <div className="">
+            <Menu className='fixed top-0 flex flex-col justify-start w-auto bg-transparent h-[80vh] hover:shadow-xl duration-300 m-3 rounded-lg md:w-[100%]'  trigger={null} collapsible collapsed={collapsed} style={{ background: "white", }}
                 mode="inline"
                 defaultSelectedKeys={['1']}
                 items={[

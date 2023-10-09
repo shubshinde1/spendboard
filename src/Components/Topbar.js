@@ -10,15 +10,28 @@ const { Header } = Layout;
 const items = [
   {
     key: '1',
-    label: 'Item 1',
+    icon: <Avatar src="./edit.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Edit Profile</h4>,
   },
   {
     key: '2',
-    label: 'Item 2',
+    icon: <Avatar src="./download.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Download</h4>
   },
   {
     key: '3',
-    label: 'Item 3',
+    icon: <Avatar src="./sync.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Sync</h4>
+  },
+  {
+    key: '4',
+    icon: <Avatar src="./info.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Info</h4>
+  },
+  {
+    key: '5',
+    icon: <Avatar src="./logout.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Log Out</h4>
   },
 ];
 
@@ -46,15 +59,13 @@ function Topbar() {
             </Button>
           </Space>
 
-          {/* <Badge size="small" count={5}> */}
           <Avatar src="./notifications.svg" icon='' className=' m-auto hover:bg-slate-100 rounded-full p-2 w-10 h-10' />
-          {/* </Badge> */}
 
           <Dropdown className='flex w-auto bg-slate-100 hover:bg-slate-200 duration-1000 py-1 rounded-full'
             menu={{
               items,
               selectable: true,
-              defaultSelectedKeys: ['2'],
+              defaultSelectedKeys: ['1'],
             }}
           >
             <Typography.Link className=''>

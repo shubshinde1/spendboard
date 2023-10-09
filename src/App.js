@@ -1,14 +1,43 @@
 import React from 'react';
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Avatar, Layout, Space, Menu, } from 'antd';
+import { Avatar, Layout, Space, Menu, Dropdown, Typography } from 'antd';
 import {
   RightSquareFilled,
-  LeftSquareFilled
+  LeftSquareFilled,
 } from '@ant-design/icons';
 import { Button, } from 'antd';
 import Home from './Components/Home';
 import Topbar from './Components/Topbar';
+
+
+const items = [
+  {
+    key: '1',
+    icon: <Avatar src="./edit.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Edit Profile</h4>,
+  },
+  {
+    key: '2',
+    icon: <Avatar src="./download.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Download</h4>
+  },
+  {
+    key: '3',
+    icon: <Avatar src="./sync.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Sync</h4>
+  },
+  {
+    key: '4',
+    icon: <Avatar src="./info.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Info</h4>
+  },
+  {
+    key: '5',
+    icon: <Avatar src="./logout.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 p-1 justify-center flex items-center ' />,
+    label: <h4 className='my-auto popsemi text-sm text-[#023154]'>Log Out</h4>
+  },
+];
 
 
 const { Header, Sider, Content } = Layout;
@@ -17,6 +46,7 @@ const { Header, Sider, Content } = Layout;
 function App() {
 
   const [collapsed, setCollapsed] = useState(window.innerWidth < 640 ? 1 : 0);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,17 +65,37 @@ function App() {
 
       <Layout className=' mx-auto '>
         <Layout>
-          <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: "white", }} className="h-[90vh] hover:shadow-xl duration-300 m-3 rounded-lg md:w-[100%]">
+          <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: "white", }} className="h-auto hover:shadow-xl duration-300 m-3 rounded-lg md:w-[100%]">
             <Menu className='flex flex-col justify-start w-auto bg-transparent h-[85%]'
               mode="inline"
               defaultSelectedKeys={['1']}
               items={[
                 {
                   key: '0',
-                  icon: <Avatar src="./person.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 justify-center flex items-center ' />,
-                  label: <h4 className='my-auto popsemi text-base text-[#023154]'>Shubham</h4>,
+                  icon: <Dropdown className='flex md:hidden py-1'
+                    menu={{
+                      items,
+                      selectable: true,
+                      defaultSelectedKeys: ['1'],
+                    }}
+                  >
+                    <Typography.Link className=' '>
+                      <Space className='flex px-4 mt-1 w-[100%]' >
+
+                        <Avatar size="10px" src="./person.svg" className='av justify-center flex  items-center' />
+
+                        {/* <h6 className='av my-auto popsemi text-sm text-[#023154] flex md:hidden '>Shubham</h6>
+                        <CaretDownFilled style={{ fontSize: '20px', color: 'black', }} className='hidden pl-1' /> */}
+                      </Space>
+                    </Typography.Link>
+                  </Dropdown>,
+                  // icon: <Avatar src="./person.svg" style={{ color: 'white', marginLeft: '-10px', marginTop: '2px', }} className='h-8 w-8 justify-center flex items-center ' />,
+                  label: <h4 className='my-auto flex md:hidden popsemi text-base text-[#023154]'>Shubham</h4>,
                   style: {
                     borderRadius: '10px',
+                    display: 'flex',
+                    paddingLeft: '1px',
+                    width: '70px',
                   }
                 },
                 {
@@ -109,6 +159,7 @@ function App() {
             <Space className='bg-red-30 my-5 flex justify-start ml-6 items-stretch'>
               <Button className='bg-slate-100 hover:bg-slate-200'
                 type=""
+                id='btn'
                 icon={collapsed ? <RightSquareFilled /> : <LeftSquareFilled />}
                 onClick={() => setCollapsed(!collapsed)}
               />
@@ -125,7 +176,7 @@ function App() {
             <Content className='bg-white border-gray-700 rounded-lg  md:mr-0'>
               <Home />
             </Content>
-            
+
           </Layout>
 
 
