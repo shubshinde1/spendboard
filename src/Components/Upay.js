@@ -6,13 +6,9 @@ import { useState } from "react";
 
 function Upay() {
     const [mode, setMode] = useState('right');
-
     const onChange = (e) => {
-    (e) => {
-    setMode (e.target.value)
-};
-}
-
+        setMode(e.target.value);
+    };
     return (
         <div className=" ">
 
